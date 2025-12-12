@@ -39,7 +39,7 @@
   const path = location.pathname.split('/').pop();
 
   // ---------- HOME PAGE ----------
-  if(path === '' || path === 'home.html' || path === 'index.html'){
+  if(path === '' || path === 'index.html' || path === 'index.html'){
     const prodList = qs('#productosList');
     const cartItems = qs('#cartItems');
     const cartTotal = qs('#cartTotal');
@@ -127,7 +127,7 @@
         sessionStorage.setItem('user', JSON.stringify(user));
         if(user.role==='admin') location.href='panel-admin.html';
         else if(user.role==='mesero') location.href='panel-meseros.html';
-        else location.href='home.html';
+        else location.href='index.html';
       }else{
         msg.textContent='Credenciales inválidas';
       }
