@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>El Sabor Colombiano - Pedido</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <img src="logo.png" alt="Logo" class="logo-small"/>
+    <h1>El Sabor Colombiano</h1>
+    <a class="btn small" href="login.html">Login</a>
+  </header>
+
+  <main class="container">
+    <section class="intro">
+      <h2>Menú</h2>
+      <p>Selecciona los productos para armar tu pedido.</p>
+    </section>
+
+    <section id="productosList" class="productos-grid">
+      <!-- Productos se cargan dinámicamente -->
+    </section>
+
+    <aside class="carrito">
+      <h3>Tu pedido</h3>
+      <ul id="cartItems"></ul>
+      <div class="cart-total">Total: <span id="cartTotal">0</span> COP</div>
+      <input id="clienteNombre" placeholder="Nombre del cliente" />
+      <input id="mesaNumero" placeholder="Mesa (opcional)" />
+      <button id="hacerPedidoBtn" class="btn">Hacer pedido</button>
+      <div id="msgHome" class="mensaje"></div>
+    </aside>
+  </main>
+
+  <footer class="site-footer">© 2025 El Sabor Colombiano</footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

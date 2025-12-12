@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Panel Administrador - El Sabor Colombiano</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="panel-header">
+    <h1>Panel Administrador</h1>
+    <div>
+      <a href="dashboard.html" class="btn small">Dashboard</a>
+      <button id="logoutBtnAdmin" class="btn ghost small">Cerrar sesión</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section>
+      <h2>Productos (CRUD)</h2>
+      <div class="form-row">
+        <input id="prodNombre" placeholder="Nombre producto" />
+        <input id="prodPrecio" placeholder="Precio (COP)" type="number" />
+        <button id="agregarProdBtn" class="btn">Agregar / Guardar</button>
+      </div>
+
+      <table class="table">
+        <thead><tr><th>Nombre</th><th>Precio</th><th>Acciones</th></tr></thead>
+        <tbody id="tablaProductos"></tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Pedidos (gestión)</h2>
+      <table class="table">
+        <thead><tr><th>ID</th><th>Cliente</th><th>Items</th><th>Total</th><th>Estado</th><th>Cambiar estado</th></tr></thead>
+        <tbody id="tablaAdminPedidos"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer class="site-footer">© 2025 El Sabor Colombiano</footer>
+  <script src="app.js"></script>
+</body>
+</html>

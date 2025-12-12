@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dashboard - El Sabor Colombiano</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="panel-header">
+    <h1>Dashboard</h1>
+    <div>
+      <a href="panel-admin.html" class="btn small">Volver</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="cards">
+      <div class="card">
+        <h3>Total Ventas</h3>
+        <p id="totalVentas">0</p>
+      </div>
+      <div class="card">
+        <h3>Pedidos Totales</h3>
+        <p id="countPedidos">0</p>
+      </div>
+      <div class="card">
+        <h3>Pedidos Pendientes</h3>
+        <p id="pendientes">0</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Últimas ventas</h2>
+      <table class="table">
+        <thead><tr><th>ID</th><th>Cliente</th><th>Total</th><th>Fecha</th></tr></thead>
+        <tbody id="ventasList"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer class="site-footer">© 2025 El Sabor Colombiano</footer>
+  <script src="app.js"></script>
+<button id='exportCSV'>Exportar ventas CSV</button></body>
+</html>

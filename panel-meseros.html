@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Panel Meseros - El Sabor Colombiano</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="panel-header">
+    <h1>Panel Meseros</h1>
+    <div>
+      <button id="refreshBtn" class="btn small">Refrescar</button>
+      <button id="logoutBtn" class="btn ghost small">Cerrar sesión</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section>
+      <h2>Pedidos</h2>
+      <table class="table">
+        <thead><tr><th>ID</th><th>Cliente</th><th>Items</th><th>Mesa</th><th>Estado</th><th>Acciones</th></tr></thead>
+        <tbody id="tablaMeseros"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer class="site-footer">© 2025 El Sabor Colombiano</footer>
+  <script src="app.js"></script>
+</body>
+</html>
