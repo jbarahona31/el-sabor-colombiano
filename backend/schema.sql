@@ -32,11 +32,11 @@ CREATE TABLE IF NOT EXISTS pedidos (
 );
 
 -- Insertar usuarios por defecto (password: 123456)
--- Contraseña hasheada con bcrypt: $2b$10$8X9vXZq5YhKZ8FqL5Y9H5ew8.4L5e5Q5Z5Q5Z5Q5Z5Q5Z5Q5Z5Q5
+-- Contraseña hasheada con bcrypt (salt rounds: 10)
 INSERT INTO usuarios (usuario, clave, rol) VALUES
-  ('admin', '$2b$10$8X9vXZq5YhKZ8FqL5Y9H5ew8.4L5e5Q5Z5Q5Z5Q5Z5Q5Z5Q5Z5Q5', 'admin'),
-  ('mesero', '$2b$10$8X9vXZq5YhKZ8FqL5Y9H5ew8.4L5e5Q5Z5Q5Z5Q5Z5Q5Z5Q5Z5Q5', 'mesero'),
-  ('cocina', '$2b$10$8X9vXZq5YhKZ8FqL5Y9H5ew8.4L5e5Q5Z5Q5Z5Q5Z5Q5Z5Q5Z5Q5', 'cocina')
+  ('admin', '$2b$10$Ez5Ai53rVgCOtHHj3tteaeqX8WCvLBHH54gX8lt2QhfnzKOXewJH.', 'admin'),
+  ('mesero', '$2b$10$Ez5Ai53rVgCOtHHj3tteaeqX8WCvLBHH54gX8lt2QhfnzKOXewJH.', 'mesero'),
+  ('cocina', '$2b$10$Ez5Ai53rVgCOtHHj3tteaeqX8WCvLBHH54gX8lt2QhfnzKOXewJH.', 'cocina')
 ON CONFLICT (usuario) DO NOTHING;
 
 -- Insertar productos iniciales

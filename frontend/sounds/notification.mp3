@@ -1,3 +1,0 @@
-# Placeholder for notification sound
-# You can replace this with an actual MP3 file
-# For now, the application will use a fallback beep sound generated with Web Audio API

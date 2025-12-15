@@ -225,9 +225,10 @@ el-sabor-colombiano/
 ## 📝 Notas Adicionales
 
 - Las contraseñas de prueba son solo para desarrollo
-- Cambia el `JWT_SECRET` en producción
+- **IMPORTANTE**: Cambia el `JWT_SECRET` en producción por un valor aleatorio seguro
 - Las imágenes de productos deben colocarse en `frontend/images/`
-- El sonido de notificación usa Web Audio API como fallback
+- El sonido de notificación usa Web Audio API (no requiere archivo MP3)
+- Para usar un archivo MP3 personalizado, coloca `notification.mp3` en `frontend/sounds/`
 - El sistema actualiza pedidos automáticamente cada 5-10 segundos
 
 ## 🤝 Contribución

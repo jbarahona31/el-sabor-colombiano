@@ -50,8 +50,13 @@ async function cargarEstadisticas() {
 // Cargar productos
 async function cargarProductos() {
   try {
-    // Obtener todos los productos sin filtro de disponibilidad
-    const response = await fetch('http://localhost:3000/api/productos');
+    // Obtener todos los productos incluyendo los no disponibles para el admin
+    const token = localStorage.getItem('token');
+    const response = await fetch('http://localhost:3000/api/productos', {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    });
     productos = await response.json();
     renderizarProductos();
   } catch (error) {
