@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import authRoutes from './routes/auth.routes.js';
 import productosRoutes from './routes/productos.routes.js';
 import pedidosRoutes from './routes/pedidos.routes.js';
+import { generalLimiter } from './middlewares/rateLimiter.middleware.js';
 
 // Cargar variables de entorno
 dotenv.config();
@@ -15,6 +16,9 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Rate limiting global
+app.use('/api/', generalLimiter);
 
 // Rutas
 app.get('/', (req, res) => {
