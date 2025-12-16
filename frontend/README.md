@@ -1,16 +1,129 @@
-# React + Vite
+# El Sabor Colombiano - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React frontend application built with Vite.
 
-Currently, two official plugins are available:
+## 🚀 Quick Start
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Local Development
 
-## React Compiler
+1. Install dependencies:
+```bash
+npm install
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+2. Create `.env` file (copy from `.env.example`):
+```bash
+cp .env.example .env
+```
 
-## Expanding the ESLint configuration
+3. Configure backend URL in `.env`:
+```env
+VITE_API_URL=http://localhost:3000/api
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+4. Start development server:
+```bash
+npm run dev
+```
+
+The app will be available at `http://localhost:5173`
+
+## 🏗️ Build for Production
+
+Build the app:
+```bash
+npm run build
+```
+
+Preview the production build:
+```bash
+npm run preview
+```
+
+Build output will be in the `dist/` directory.
+
+## 🚢 Netlify Deployment
+
+This frontend is configured for Netlify deployment.
+
+### Automatic Deployment
+
+Netlify will automatically:
+- Install dependencies
+- Run `npm run build`
+- Publish the `dist/` directory
+- Apply settings from `netlify.toml`
+
+### Configuration
+
+The `netlify.toml` file includes:
+- Build settings (already configured)
+- SPA redirect rules for client-side routing
+- Security headers
+- Cache control for assets
+
+### Required Environment Variable
+
+Set this in Netlify dashboard:
+
+- `VITE_API_URL` - Your Railway backend URL (e.g., https://your-app.railway.app/api)
+
+**Important:** The URL must include `/api` at the end.
+
+### Manual Deployment
+
+You can also deploy manually using Netlify CLI:
+
+```bash
+# Install Netlify CLI
+npm install -g netlify-cli
+
+# Build the app
+npm run build
+
+# Deploy
+netlify deploy --prod --dir=dist
+```
+
+## 📁 Project Structure
+
+```
+frontend/
+├── src/
+│   ├── config/
+│   │   └── api.js           # API configuration & client
+│   ├── assets/              # Images, icons
+│   ├── App.jsx              # Main component
+│   ├── App.css              # App styles
+│   ├── main.jsx             # Entry point
+│   └── index.css            # Global styles
+├── public/                  # Static files
+├── index.html               # HTML template
+├── vite.config.js           # Vite configuration
+├── netlify.toml             # Netlify configuration
+├── .env.example             # Environment variables template
+└── package.json             # Dependencies
+```
+
+## 🔧 Environment Variables
+
+All frontend environment variables must start with `VITE_` to be exposed to the client.
+
+Available variables:
+- `VITE_API_URL` - Backend API base URL
+
+## 🛠️ Scripts
+
+- `npm run dev` - Start development server with HMR
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build locally
+- `npm run lint` - Run ESLint
+
+## 📝 Notes
+
+- This is a Vite + React project
+- Environment variables are baked into the build at build time
+- The `netlify.toml` handles SPA routing (all routes go to index.html)
+- API client in `src/config/api.js` handles authentication tokens
+
+For detailed deployment instructions, see [DEPLOYMENT.md](../DEPLOYMENT.md) in the root directory.

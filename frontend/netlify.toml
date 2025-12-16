@@ -1,0 +1,40 @@
+# Netlify configuration for El Sabor Colombiano Frontend
+[build]
+  # Directory with the source code
+  base = "frontend"
+  
+  # Build command to generate production files
+  command = "npm run build"
+  
+  # Directory with the production build (Vite outputs to 'dist' by default)
+  publish = "dist"
+
+# Environment variables (set these in Netlify UI)
+# VITE_API_URL = your Railway backend URL
+
+# Redirect rules for SPA (Single Page Application)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Headers for security and performance
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Cache static assets
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Don't cache the HTML
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
