@@ -1,93 +1,13 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>El Sabor Colombiano - Menú</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <header>
-    <div class="container">
-      <h1>🇨🇴 El Sabor Colombiano</h1>
-      <p class="tagline">Sabores auténticos de Colombia</p>
-      <nav>
-        <a href="login.html" class="btn btn-secondary">Personal</a>
-        <a href="#carrito" class="btn btn-primary" id="btnVerCarrito">
-          🛒 Carrito (<span id="cantidadCarrito">0</span>)
-        </a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="container">
-    <!-- Búsqueda y filtros -->
-    <div class="search-section">
-      <input 
-        type="text" 
-        id="buscador" 
-        placeholder="🔍 Buscar productos..." 
-        class="search-input"
-      >
-      <div class="filters">
-        <button class="btn-filter active" data-categoria="">Todos</button>
-        <button class="btn-filter" data-categoria="comidas">Comidas</button>
-        <button class="btn-filter" data-categoria="bebidas">Bebidas</button>
-      </div>
-    </div>
-
-    <!-- Grid de productos -->
-    <div id="productosGrid" class="productos-grid">
-      <div class="loading">Cargando productos...</div>
-    </div>
-  </main>
-
-  <!-- Modal de detalles del producto -->
-  <div id="modalProducto" class="modal">
-    <div class="modal-content">
-      <span class="modal-close">&times;</span>
-      <div class="modal-body">
-        <img id="modalImagen" src="" alt="" class="modal-imagen">
-        <h2 id="modalNombre"></h2>
-        <p id="modalCategoria" class="categoria-badge"></p>
-        <p class="precio" id="modalPrecio"></p>
-        <button id="modalAgregar" class="btn btn-primary btn-block">
-          Agregar al Carrito
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal del carrito -->
-  <div id="modalCarrito" class="modal">
-    <div class="modal-content">
-      <span class="modal-close" id="cerrarCarrito">&times;</span>
-      <h2>🛒 Carrito de Compras</h2>
-      <div id="listaCarrito" class="carrito-lista"></div>
-      <div class="carrito-total">
-        <h3>Total: $<span id="totalCarrito">0</span></h3>
-      </div>
-      <div class="carrito-acciones">
-        <input 
-          type="number" 
-          id="numeroMesa" 
-          placeholder="Número de mesa"
-          min="1"
-          class="input-mesa"
-        >
-        <button id="btnEnviarPedido" class="btn btn-primary btn-block">
-          Enviar Pedido
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <footer>
-    <div class="container">
-      <p>&copy; 2024 El Sabor Colombiano - Todos los derechos reservados</p>
-    </div>
-  </footer>
-
-  <script type="module" src="app.js"></script>
-</body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>frontend</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
