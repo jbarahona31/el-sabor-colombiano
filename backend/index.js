@@ -12,8 +12,17 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// CORS configuration - allow frontend from different origins
+const corsOptions = {
+  origin: process.env.FRONTEND_URL 
+    ? [process.env.FRONTEND_URL, 'http://localhost:5173', 'http://localhost:8000']
+    : '*', // In development, allow all origins
+  credentials: true,
+  optionsSuccessStatus: 200,
+};
+
 // Middlewares
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

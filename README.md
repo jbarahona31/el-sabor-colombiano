@@ -184,25 +184,50 @@ el-sabor-colombiano/
 
 ## 🚢 Despliegue
 
-### Backend en Railway
+Este proyecto está configurado para desplegarse en:
+- **Frontend**: Netlify (con React + Vite)
+- **Backend**: Railway (con Node.js + PostgreSQL)
+
+### Guía Rápida
+
+#### Backend en Railway
 
 1. Crear cuenta en [Railway](https://railway.app)
 2. Nuevo proyecto → "Deploy from GitHub"
-3. Seleccionar el repositorio
-4. Configurar variables de entorno:
-   - `DATABASE_URL` (Railway provee PostgreSQL automáticamente)
-   - `JWT_SECRET`
+3. Seleccionar el repositorio con root directory: `backend`
+4. Agregar PostgreSQL desde el dashboard
+5. Configurar variables de entorno:
+   - `DATABASE_URL` (auto-configurado por Railway)
+   - `JWT_SECRET` (generar clave segura)
    - `NODE_ENV=production`
-5. Railway desplegará automáticamente
+   - `FRONTEND_URL` (URL de Netlify)
+   - `PORT=3000`
+6. Ejecutar el schema SQL en la base de datos
+7. Railway desplegará automáticamente
 
-### Frontend en Netlify/Vercel
+#### Frontend en Netlify
 
-1. Crear cuenta en [Netlify](https://netlify.com) o [Vercel](https://vercel.com)
+1. Crear cuenta en [Netlify](https://netlify.com)
 2. Nuevo sitio desde Git
-3. Configurar:
-   - Build command: (vacío)
-   - Publish directory: `frontend`
-4. Actualizar `api.js` con la URL de producción del backend
+3. Configurar (ya incluido en `netlify.toml`):
+   - Base directory: `frontend`
+   - Build command: `npm run build`
+   - Publish directory: `frontend/dist`
+4. Configurar variable de entorno:
+   - `VITE_API_URL` (URL del backend en Railway con `/api`)
+5. Netlify desplegará automáticamente
+
+### Documentación Completa
+
+Para instrucciones detalladas paso a paso, consulta **[DEPLOYMENT.md](./DEPLOYMENT.md)**
+
+Esta guía incluye:
+- Configuración detallada de Railway y Netlify
+- Variables de entorno requeridas
+- Inicialización de la base de datos
+- Resolución de problemas comunes
+- Verificación de despliegue
+- Checklist de seguridad
 
 ## 🛠️ Tecnologías Utilizadas
 
@@ -216,11 +241,12 @@ el-sabor-colombiano/
 - cors
 
 ### Frontend
-- HTML5
-- CSS3
+- React 19
+- Vite (build tool)
 - JavaScript (ES6+)
 - Fetch API
 - LocalStorage
+- CSS3
 
 ## 📝 Notas Adicionales
 
