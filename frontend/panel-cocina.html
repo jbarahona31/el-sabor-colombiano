@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel Cocina - El Sabor Colombiano</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="panel-header">
+    <div>
+      <h1>👨‍🍳 Panel de Cocina</h1>
+      <p>Gestión de Pedidos en Tiempo Real</p>
+    </div>
+    <div class="user-info">
+      <span>Usuario: <strong id="nombreUsuario"></strong></span>
+      <button id="btnCerrarSesion" class="btn btn-secondary">Cerrar Sesión</button>
+    </div>
+  </div>
+
+  <div class="container panel-content">
+    <!-- Controles -->
+    <div class="card">
+      <div class="cocina-controles">
+        <button id="btnActualizar" class="btn btn-primary">🔄 Actualizar</button>
+        <label class="sonido-toggle">
+          <input type="checkbox" id="sonidoActivado" checked>
+          <span>🔔 Sonido de notificación</span>
+        </label>
+        <div class="estadisticas">
+          <span class="stat-badge">Pendientes: <strong id="countPendientes">0</strong></span>
+          <span class="stat-badge">En Preparación: <strong id="countPreparando">0</strong></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pedidos Pendientes -->
+    <div class="pedidos-cocina-section">
+      <h2>🔴 Pedidos Pendientes</h2>
+      <div id="pedidosPendientes" class="pedidos-cocina-grid">
+        <p class="text-muted">No hay pedidos pendientes</p>
+      </div>
+    </div>
+
+    <!-- Pedidos en Preparación -->
+    <div class="pedidos-cocina-section">
+      <h2>🟡 En Preparación</h2>
+      <div id="pedidosPreparando" class="pedidos-cocina-grid">
+        <p class="text-muted">No hay pedidos en preparación</p>
+      </div>
+    </div>
+
+    <!-- Pedidos Listos -->
+    <div class="pedidos-cocina-section">
+      <h2>🟢 Listos para Servir</h2>
+      <div id="pedidosListos" class="pedidos-cocina-grid">
+        <p class="text-muted">No hay pedidos listos</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Audio para notificaciones -->
+  <audio id="notificacionAudio" preload="auto">
+    <source src="sounds/notification.mp3" type="audio/mpeg">
+  </audio>
+
+  <script type="module" src="panel-cocina.js"></script>
+</body>
+</html>

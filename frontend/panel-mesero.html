@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel Mesero - El Sabor Colombiano</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="panel-header">
+    <div>
+      <h1>🍽️ Panel de Mesero</h1>
+      <p>Gestión de Pedidos</p>
+    </div>
+    <div class="user-info">
+      <span>Usuario: <strong id="nombreUsuario"></strong></span>
+      <button id="btnCerrarSesion" class="btn btn-secondary">Cerrar Sesión</button>
+    </div>
+  </div>
+
+  <div class="container panel-content">
+    <!-- Sección de crear pedido -->
+    <div class="card">
+      <h3>📝 Nuevo Pedido</h3>
+      <form id="formPedido">
+        <div class="form-group">
+          <label for="numeroMesa">Número de Mesa *</label>
+          <input 
+            type="number" 
+            id="numeroMesa" 
+            min="1" 
+            required 
+            placeholder="Ej: 5"
+          >
+        </div>
+
+        <div class="form-group">
+          <label>Seleccionar Productos *</label>
+          <div id="productosSelect" class="productos-select"></div>
+        </div>
+
+        <div class="form-group">
+          <h4>Productos Seleccionados:</h4>
+          <div id="productosSeleccionados" class="productos-seleccionados-lista">
+            <p class="text-muted">No hay productos seleccionados</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <h3>Total: $<span id="totalPedido">0</span></h3>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">
+          Enviar Pedido a Cocina
+        </button>
+      </form>
+    </div>
+
+    <!-- Lista de pedidos recientes -->
+    <div class="card">
+      <h3>📋 Pedidos del Día</h3>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Mesa</th>
+              <th>Total</th>
+              <th>Estado</th>
+              <th>Hora</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="tablaPedidos">
+            <tr>
+              <td colspan="6" class="loading">Cargando pedidos...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de detalles del pedido -->
+  <div id="modalDetallePedido" class="modal">
+    <div class="modal-content">
+      <span class="modal-close">&times;</span>
+      <h2>Detalle del Pedido #<span id="detallePedidoId"></span></h2>
+      <p><strong>Mesa:</strong> <span id="detalleMesa"></span></p>
+      <p><strong>Estado:</strong> <span id="detalleEstado"></span></p>
+      <h3>Productos:</h3>
+      <div id="detalleProductos" class="detalle-productos-lista"></div>
+      <h3>Total: $<span id="detalleTotal"></span></h3>
+    </div>
+  </div>
+
+  <script type="module" src="panel-mesero.js"></script>
+</body>
+</html>
