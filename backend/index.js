@@ -14,12 +14,17 @@ const PORT = process.env.PORT || 3000;
 
 // CORS configuration - allow frontend from different origins
 const corsOptions = {
-  origin: process.env.FRONTEND_URL 
-    ? [process.env.FRONTEND_URL, 'http://localhost:5173', 'http://localhost:8000']
-    : '*', // In development, allow all origins
+  origin: process.env.NODE_ENV === 'production'
+    ? (process.env.FRONTEND_URL || false) // In production, FRONTEND_URL is required
+    : [process.env.FRONTEND_URL, 'http://localhost:5173', 'http://localhost:8000'].filter(Boolean),
   credentials: true,
   optionsSuccessStatus: 200,
 };
+
+// Validate CORS configuration in production
+if (process.env.NODE_ENV === 'production' && !process.env.FRONTEND_URL) {
+  console.error('⚠️  WARNING: FRONTEND_URL not set in production. CORS will block all requests.');
+}
 
 // Middlewares
 app.use(cors(corsOptions));

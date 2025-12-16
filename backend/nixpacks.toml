@@ -9,4 +9,4 @@ cmds = ["npm ci"]
 cmds = []
 
 [start]
-cmd = "node index.js"
+cmd = "npm start"

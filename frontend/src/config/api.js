@@ -61,7 +61,10 @@ export const apiClient = {
 
       return data;
     } catch (error) {
-      console.error('API Error:', error);
+      // Only log errors in development to avoid exposing sensitive information
+      if (import.meta.env.DEV) {
+        console.error('API Error:', error);
+      }
       throw error;
     }
   },
